@@ -48,7 +48,6 @@ public class IOput {
 
         LinkedList<String> inputArray = new LinkedList<String>();
 
-
         for (int i = 0; i < num; i++) {
 
             inputArray.add(scnr.next());
@@ -56,7 +55,6 @@ public class IOput {
         }
 
         return inputArray;
-
     }
 
     public void outPutOld(String s, String sep) {
@@ -76,7 +74,7 @@ public class IOput {
         outPutOld(s, "\n");
     }
 
-    public void printTable(Pair<ArrayList<Connection>, Integer> pair, LinkedList<String> nameList) {
+    public void printConnectionOfTable(Pair<ArrayList<Connection>, Integer> pair, LinkedList<String> nameList) {
         for (int i = 0; i < pair.getFirst().size(); i++) {
             println(nameList.get(pair.getFirst().get(i).ori)
                     + " <-> " +
@@ -85,5 +83,11 @@ public class IOput {
         println("Cost: " + pair.getSecond());
     }
 
+    public static void generateTable(String path){
 
+    }
+
+    public static void printInputTable(String path){
+
+    }
 }

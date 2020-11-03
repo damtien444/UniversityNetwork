@@ -68,16 +68,16 @@ public class Prim {
     }
 
 
-    public static void main(String[] args) {
+    public static void run(String input, String output) {
 
-        IOput io = new IOput("input.txt", "output.txt");
+        IOput io = new IOput(input, output);
         // Tao vat the doc file
 
         System.out.println("Reading from input.txt");
 
         Pair<int[][], Integer> table = io.inputATable();
         LinkedList<String> nameBuilding = io.inputName(table.getSecond());
-        // Khoi tao va doc vao danh sach input cho toan truong
+        // Khoi tao va doc vao block input cho toan truong
 
         Pair<ArrayList<Connection>, Integer> result = primCal(table.getFirst(), table.getSecond());
         // Khoi tao ket qua cho toan truong
@@ -106,17 +106,16 @@ public class Prim {
 
         // Print to files
         io.println("\nSuggested connection for the University!");
-        io.printTable(result, nameBuilding);
+        io.printConnectionOfTable(result, nameBuilding);
 
         for (int i = 0; i < resultList.size(); i++) {
             io.println("\nSuggested connection for " + nameList.get(i) + "!");
-            io.printTable(resultList.get(i), nameList.get(i));
+            io.printConnectionOfTable(resultList.get(i), nameList.get(i));
         }
 
-        System.out.println("Write result to file output.txt");
+        System.out.println("\nWrite result to file \"output.txt\"");
 
 
-        // TODO: Create a GUI
         // that GUI must generate an input file and trigger this file to generate output
         // then read from that output and generate GUI
 
