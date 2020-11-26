@@ -71,56 +71,38 @@ public class Prim {
     public static void run(String input, String output) {
 
         IOput io = new IOput(input, output);
-        // Tao vat the doc file
+        // Create object input and output
 
         System.out.println("Reading from input.txt");
 
-        Pair<int[][], Integer> table = io.inputATable();
-        LinkedList<String> nameBuilding = io.inputName(table.getSecond());
-        // Khoi tao va doc vao block input cho toan truong
+        Pair read = io.readAdjacencyList();
 
-        Pair<ArrayList<Connection>, Integer> result = primCal(table.getFirst(), table.getSecond());
-        // Khoi tao ket qua cho toan truong
+        System.out.println("Computing!");
+        LinkedList name = (LinkedList) read.getFirst();
+        LinkedList table = (LinkedList) read.getSecond();
 
-        LinkedList<Pair<int[][], Integer>> tableList = new LinkedList<>();
-        // Khoi tao danh sach input cho moi khu
+        LinkedList result = new LinkedList<Pair>();
 
-        LinkedList<Pair<ArrayList<Connection>, Integer>> resultList = new LinkedList<>();
-        // Khoi tao danh sach output cho moi khu
-
-        LinkedList<LinkedList<String>> nameList = new LinkedList<>();
-
-        for (int i = 0; i < table.getSecond(); i++) {
-            tableList.add(io.inputATable());
-            nameList.add(io.inputName(tableList.get(i).getSecond()));
+        for (int i=0; i<name.size();i++){
+            result.add(primCal((int[][]) table.get(i),(((int[][]) table.get(i)).length)));
+            io.printConnectionOfTable((Pair<ArrayList<Connection>, Integer>) result.get(i), (LinkedList<String>) name.get(i));
         }
-        // doc vao cac bang gia tri va danh sach cac ten
-
-        for (Pair<int[][], Integer> tableB : tableList) {
-            resultList.add(primCal(tableB.getFirst(), tableB.getSecond()));
-        }
-        // Tinh toan cac khu
-
 
         System.out.println("Finish compute!");
 
         // Print to files
         io.println("\nSuggested connection for the University!");
-        io.printConnectionOfTable(result, nameBuilding);
+//        io.printConnectionOfTable(result, nameBuilding);
 
-        for (int i = 0; i < resultList.size(); i++) {
-            io.println("\nSuggested connection for " + nameList.get(i) + "!");
-            io.printConnectionOfTable(resultList.get(i), nameList.get(i));
-        }
 
         System.out.println("\nWrite result to file \"output.txt\"");
-
 
         // that GUI must generate an input file and trigger this file to generate output
         // then read from that output and generate GUI
 
-
-
     }
 
+    public static void main(String[] args) {
+        run("input_new.txt", "out.txt");
+    }
 }

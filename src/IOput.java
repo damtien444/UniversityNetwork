@@ -1,9 +1,9 @@
 import kotlin.Pair;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Scanner;
+import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class IOput {
 
@@ -19,11 +19,10 @@ public class IOput {
         this.out = pathOut;
         this.input = new File(this.path);
         try {
-            this.scnr = new Scanner(input);
+            this.scnr = new Scanner(this.input);
         } catch (FileNotFoundException var3) {
             var3.printStackTrace();
         }
-
     }
 
     public Pair<int[][], Integer> inputATable() {
@@ -83,11 +82,100 @@ public class IOput {
         println("Cost: " + pair.getSecond());
     }
 
-    public static void generateTable(String path){
 
-    }
 
     public static void printInputTable(String path){
 
     }
+
+    public static void outputWriter(String path, String s, String sep){
+        try (FileWriter fw = new FileWriter(path, true);
+             BufferedWriter bw = new BufferedWriter(fw);
+             PrintWriter out = new PrintWriter(bw)) {
+            out.print(s);
+
+            out.print(sep);
+        } catch (IOException e) {
+            //exception handling left as an exercise for the reader
+        }
+    }
+
+
+
+    public Pair<LinkedList<LinkedList<String>>, LinkedList<int[][]>> readAdjacencyList(){
+        String so_luong;
+        String danh_sach;
+        String dis;
+        LinkedList<LinkedList<String>> nameList = new LinkedList<>();
+        LinkedList<int[][]> adjacencyList = new LinkedList<>();
+        int num=0;
+        int i=0;
+        while (this.scnr.hasNextLine()){
+
+            so_luong = this.scnr.nextLine();
+            danh_sach = this.scnr.nextLine();
+            dis = this.scnr.nextLine();
+
+            Pattern pattern = Pattern.compile("(\\d+)");
+            Matcher matcher = pattern.matcher(so_luong);
+
+            nameList.add(new LinkedList<String>());
+            matcher.find();
+            try {
+                num = Integer.parseInt(matcher.group());
+
+                pattern = Pattern.compile("([A-Z]\\d+|[A-Z]\\b)");
+                matcher = pattern.matcher(danh_sach);
+
+                // Find the name
+                while (matcher.find()){
+
+                    nameList.get(i).add(matcher.group());
+                }
+
+
+                int[][] connect = new int[num][num];
+                for (int j=0; j<num; j++){
+                    String ket_noi = this.scnr.nextLine();
+//                    System.out.println(ket_noi);
+                    pattern = Pattern.compile("[A-Z]\\d*");
+                    matcher = pattern.matcher(ket_noi);
+                    matcher.find();
+                    String donvi = matcher.group();
+
+                    pattern = Pattern.compile("([A-Z][0-9]*\\(\\d+\\))");
+                    matcher = pattern.matcher(ket_noi);
+                    while (matcher.find()){
+//                    System.out.println(matcher.group());
+                        Vertex canh = new Vertex(matcher.group());
+//                        System.out.println(matcher.group());\
+//                        System.out.println(nameList.get(i).indexOf(canh.getName()));
+                        connect[nameList.get(i).indexOf(donvi)][nameList.get(i).indexOf(canh.getName())] = canh.getWeight();
+                    }
+
+                }
+                for (int k =0; k<num;k++) {
+                    for (int l = 0; l < num; l++) {
+                        System.out.print(connect[k][l]+" ");
+                    }
+                    System.out.print("\n");
+                }
+
+                adjacencyList.add(connect);
+                i++;
+                System.out.println("\n");
+            } catch (Exception e) {
+
+            }
+            try {
+                scnr.nextLine();
+            } catch (NoSuchElementException e){
+
+            }
+        }
+        System.out.println("Finish reading");
+        return new Pair<>(nameList, adjacencyList);
+    }
+
+
 }
