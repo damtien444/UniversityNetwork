@@ -71,38 +71,29 @@ public class Prim {
     public static void run(String input, String output) {
 
         IOput io = new IOput(input, output);
-        // Create object input and output
 
         System.out.println("Reading from input.txt");
 
         Pair read = io.readAdjacencyList();
 
-        System.out.println("Computing!");
+        System.out.println("\nComputing!");
+
         LinkedList name = (LinkedList) read.getFirst();
         LinkedList table = (LinkedList) read.getSecond();
 
-        LinkedList result = new LinkedList<Pair>();
+        LinkedList<Pair<ArrayList<Connection>, Integer>> result = new LinkedList<>();
 
         for (int i=0; i<name.size();i++){
             result.add(primCal((int[][]) table.get(i),(((int[][]) table.get(i)).length)));
-            io.printConnectionOfTable((Pair<ArrayList<Connection>, Integer>) result.get(i), (LinkedList<String>) name.get(i));
+            io.println("\nSuggested connection for: "+name.get(i));
+            io.printConnectionOfTable(result.get(i), (LinkedList<String>) name.get(i));
         }
 
         System.out.println("Finish compute!");
 
-        // Print to files
-        io.println("\nSuggested connection for the University!");
-//        io.printConnectionOfTable(result, nameBuilding);
+        System.out.println("\nWrite result to file \""+io.getOut()+"\"");
 
-
-        System.out.println("\nWrite result to file \"output.txt\"");
-
-        // that GUI must generate an input file and trigger this file to generate output
-        // then read from that output and generate GUI
 
     }
 
-    public static void main(String[] args) {
-        run("input_new.txt", "out.txt");
-    }
 }

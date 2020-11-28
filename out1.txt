@@ -40,7 +40,7 @@ Cost: 65
 
 Suggested connection for: [A, B, C, D, F]
 A <-> B
-A <-> D
+B <-> D
 D <-> F
 D <-> C
-Cost: 620
+Cost: 680

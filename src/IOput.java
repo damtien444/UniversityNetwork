@@ -28,9 +28,7 @@ public class IOput {
     public Pair<int[][], Integer> inputATable() {
 
         int size = scnr.nextInt();
-
         int[][] inputArray = new int[size][size];
-
         int count = size;
 
         for (int i = 0; i < count; i++) {
@@ -40,7 +38,6 @@ public class IOput {
         }
 
         return new Pair<int[][], Integer>(inputArray, size);
-
     }
 
     public LinkedList<String> inputName(int num) {
@@ -48,21 +45,20 @@ public class IOput {
         LinkedList<String> inputArray = new LinkedList<String>();
 
         for (int i = 0; i < num; i++) {
-
             inputArray.add(scnr.next());
-
         }
 
         return inputArray;
     }
 
     public void outPutOld(String s, String sep) {
+
         try (FileWriter fw = new FileWriter(this.out, true);
              BufferedWriter bw = new BufferedWriter(fw);
              PrintWriter out = new PrintWriter(bw)) {
             out.print(s);
-
             out.print(sep);
+
         } catch (IOException e) {
             //exception handling left as an exercise for the reader
         }
@@ -82,27 +78,8 @@ public class IOput {
         println("Cost: " + pair.getSecond());
     }
 
-
-
-    public static void printInputTable(String path){
-
-    }
-
-    public static void outputWriter(String path, String s, String sep){
-        try (FileWriter fw = new FileWriter(path, true);
-             BufferedWriter bw = new BufferedWriter(fw);
-             PrintWriter out = new PrintWriter(bw)) {
-            out.print(s);
-
-            out.print(sep);
-        } catch (IOException e) {
-            //exception handling left as an exercise for the reader
-        }
-    }
-
-
-
     public Pair<LinkedList<LinkedList<String>>, LinkedList<int[][]>> readAdjacencyList(){
+
         String so_luong;
         String danh_sach;
         String dis;
@@ -110,9 +87,11 @@ public class IOput {
         LinkedList<int[][]> adjacencyList = new LinkedList<>();
         int num=0;
         int i=0;
+
         while (this.scnr.hasNextLine()){
 
             so_luong = this.scnr.nextLine();
+
             danh_sach = this.scnr.nextLine();
             dis = this.scnr.nextLine();
 
@@ -129,15 +108,12 @@ public class IOput {
 
                 // Find the name
                 while (matcher.find()){
-
                     nameList.get(i).add(matcher.group());
                 }
-
 
                 int[][] connect = new int[num][num];
                 for (int j=0; j<num; j++){
                     String ket_noi = this.scnr.nextLine();
-//                    System.out.println(ket_noi);
                     pattern = Pattern.compile("[A-Z]\\d*");
                     matcher = pattern.matcher(ket_noi);
                     matcher.find();
@@ -146,13 +122,9 @@ public class IOput {
                     pattern = Pattern.compile("([A-Z][0-9]*\\(\\d+\\))");
                     matcher = pattern.matcher(ket_noi);
                     while (matcher.find()){
-//                    System.out.println(matcher.group());
                         Vertex canh = new Vertex(matcher.group());
-//                        System.out.println(matcher.group());\
-//                        System.out.println(nameList.get(i).indexOf(canh.getName()));
                         connect[nameList.get(i).indexOf(donvi)][nameList.get(i).indexOf(canh.getName())] = canh.getWeight();
                     }
-
                 }
                 for (int k =0; k<num;k++) {
                     for (int l = 0; l < num; l++) {
@@ -177,5 +149,27 @@ public class IOput {
         return new Pair<>(nameList, adjacencyList);
     }
 
+    public void printFile(){
+        String line;
+        while (this.scnr.hasNextLine()){
+            line = this.scnr.nextLine();
+            System.out.println(line);
+        }
+    }
 
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+    public String getOut() {
+        return out;
+    }
+
+    public void setOut(String out) {
+        this.out = out;
+    }
 }
