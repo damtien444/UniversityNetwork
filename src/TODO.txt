@@ -1,0 +1,12 @@
+sinh test kích thước lớn
+chuẩn bị các file input từ mức độ nhỏ đến lớn
+
+chi su dung array
+
+cấu trúc của buổi trình bày như thế nào?
+các thầy sẽ xem những phần nào?
+
+nên có chuẩn hóa dữ liệu đầu vào
+
+
+Self implement match and pattern

@@ -1,5 +1,3 @@
-import kotlin.Pair;
-
 import java.io.*;
 import java.util.*;
 import java.util.regex.Matcher;
@@ -11,7 +9,6 @@ public class IOput {
     private File input;
     private Scanner scnr;
     private String out;
-
 
     public IOput(String path, String pathOut) {
 
@@ -47,7 +44,6 @@ public class IOput {
         for (int i = 0; i < num; i++) {
             inputArray.add(scnr.next());
         }
-
         return inputArray;
     }
 
@@ -69,37 +65,38 @@ public class IOput {
         outPutOld(s, "\n");
     }
 
-    public void printConnectionOfTable(Pair<ArrayList<Connection>, Integer> pair, LinkedList<String> nameList) {
-        for (int i = 0; i < pair.getFirst().size(); i++) {
-            println(nameList.get(pair.getFirst().get(i).ori)
+    public void printConnectionOfTable(Pair<ArrayList<Vertex>, Integer> pair, ArrayList<String> nameList) {
+        for (int i = 0; i < pair.first.size(); i++) {
+            println(nameList.get(pair.first.get(i).ori)
                     + " <-> " +
-                    nameList.get(pair.getFirst().get(i).des));
+                    nameList.get(pair.first.get(i).des));
         }
-        println("Cost: " + pair.getSecond());
+        println("Cost: " + pair.second);
     }
 
-    public Pair<LinkedList<LinkedList<String>>, LinkedList<int[][]>> readAdjacencyList(){
+    public Pair<ArrayList, ArrayList<int[][]>> readAdjacencyList(){
 
         String so_luong;
         String danh_sach;
         String dis;
-        LinkedList<LinkedList<String>> nameList = new LinkedList<>();
-        LinkedList<int[][]> adjacencyList = new LinkedList<>();
+
+        ArrayList<ArrayList<String>> nameList = new ArrayList<>();
+        ArrayList<int[][]> adjacencyList = new ArrayList<>();
         int num=0;
         int i=0;
 
         while (this.scnr.hasNextLine()){
 
             so_luong = this.scnr.nextLine();
-
             danh_sach = this.scnr.nextLine();
             dis = this.scnr.nextLine();
 
             Pattern pattern = Pattern.compile("(\\d+)");
             Matcher matcher = pattern.matcher(so_luong);
 
-            nameList.add(new LinkedList<String>());
+            nameList.add(new ArrayList<String>());
             matcher.find();
+
             try {
                 num = Integer.parseInt(matcher.group());
 
@@ -121,21 +118,16 @@ public class IOput {
 
                     pattern = Pattern.compile("([A-Z][0-9]*\\(\\d+\\))");
                     matcher = pattern.matcher(ket_noi);
+
                     while (matcher.find()){
                         Vertex canh = new Vertex(matcher.group());
-                        connect[nameList.get(i).indexOf(donvi)][nameList.get(i).indexOf(canh.getName())] = canh.getWeight();
+                        connect[nameList.get(i).indexOf(donvi)][nameList.get(i).indexOf(canh.name)] = canh.weight;
                     }
-                }
-                for (int k =0; k<num;k++) {
-                    for (int l = 0; l < num; l++) {
-                        System.out.print(connect[k][l]+" ");
-                    }
-                    System.out.print("\n");
                 }
 
                 adjacencyList.add(connect);
                 i++;
-                System.out.println("\n");
+
             } catch (Exception e) {
 
             }
@@ -146,7 +138,7 @@ public class IOput {
             }
         }
         System.out.println("Finish reading");
-        return new Pair<>(nameList, adjacencyList);
+        return new Pair<ArrayList, ArrayList<int[][]>>(nameList, adjacencyList);
     }
 
     public void printFile(){

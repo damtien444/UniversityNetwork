@@ -2,9 +2,17 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Vertex {
-    String name;
-    int weight;
 
+    public int ori;
+    public int des;
+
+    public String name;
+    public int weight;
+
+    public Vertex(int ori, int des) {
+        this.ori = ori;
+        this.des = des;
+    }
 
     public Vertex(String name, int weight) {
         this.name = name;
@@ -23,19 +31,4 @@ public class Vertex {
     }
 
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getWeight() {
-        return weight;
-    }
-
-    public void setWeight(int weight) {
-        this.weight = weight;
-    }
 }

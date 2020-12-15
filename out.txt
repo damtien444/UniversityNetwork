@@ -44,3 +44,187 @@ A <-> D
 D <-> F
 D <-> C
 Cost: 620
+
+Suggested connection for: [A101, A102, A103, A208, A207, A309]
+A101 <-> A102
+A102 <-> A103
+A101 <-> A208
+A208 <-> A207
+A208 <-> A309
+Cost: 66
+
+Suggested connection for: [B101, B108, B201, B290, B301, B370]
+B101 <-> B108
+B108 <-> B290
+B290 <-> B201
+B290 <-> B301
+B301 <-> B370
+Cost: 102
+
+Suggested connection for: [C101, C102, C103, C104, C120, C121]
+C101 <-> C102
+C101 <-> C103
+C102 <-> C104
+C104 <-> C121
+C121 <-> C120
+Cost: 50
+
+Suggested connection for: [D101, D102, D110, D201, D109]
+D101 <-> D102
+D101 <-> D109
+D109 <-> D201
+D201 <-> D110
+Cost: 58
+
+Suggested connection for: [F307, F207, F107, F108, F106, F409]
+F307 <-> F107
+F107 <-> F106
+F106 <-> F108
+F108 <-> F207
+F108 <-> F409
+Cost: 65
+
+Suggested connection for: [A, B, C, D, F]
+A <-> B
+A <-> D
+D <-> F
+D <-> C
+Cost: 620
+
+Suggested connection for: [A101, A102, A103, A208, A207, A309]
+A101 <-> A102
+A102 <-> A103
+A101 <-> A208
+A208 <-> A207
+A208 <-> A309
+Cost: 66
+
+Suggested connection for: [B101, B108, B201, B290, B301, B370]
+B101 <-> B108
+B108 <-> B290
+B290 <-> B201
+B290 <-> B301
+B301 <-> B370
+Cost: 102
+
+Suggested connection for: [C101, C102, C103, C104, C120, C121]
+C101 <-> C102
+C101 <-> C103
+C102 <-> C104
+C104 <-> C121
+C121 <-> C120
+Cost: 50
+
+Suggested connection for: [D101, D102, D110, D201, D109]
+D101 <-> D102
+D101 <-> D109
+D109 <-> D201
+D201 <-> D110
+Cost: 58
+
+Suggested connection for: [F307, F207, F107, F108, F106, F409]
+F307 <-> F107
+F107 <-> F106
+F106 <-> F108
+F108 <-> F207
+F108 <-> F409
+Cost: 65
+
+Suggested connection for: [A, B, C, D, F]
+A <-> B
+A <-> D
+D <-> F
+D <-> C
+Cost: 620
+
+Suggested connection for: [A101, A102, A103, A208, A207, A309]
+A101 <-> A102
+A102 <-> A103
+A101 <-> A208
+A208 <-> A207
+A208 <-> A309
+Cost: 66
+
+Suggested connection for: [B101, B108, B201, B290, B301, B370]
+B101 <-> B108
+B108 <-> B290
+B290 <-> B201
+B290 <-> B301
+B301 <-> B370
+Cost: 102
+
+Suggested connection for: [C101, C102, C103, C104, C120, C121]
+C101 <-> C102
+C101 <-> C103
+C102 <-> C104
+C104 <-> C121
+C121 <-> C120
+Cost: 50
+
+Suggested connection for: [D101, D102, D110, D201, D109]
+D101 <-> D102
+D101 <-> D109
+D109 <-> D201
+D201 <-> D110
+Cost: 58
+
+Suggested connection for: [F307, F207, F107, F108, F106, F409]
+F307 <-> F107
+F107 <-> F106
+F106 <-> F108
+F108 <-> F207
+F108 <-> F409
+Cost: 65
+
+Suggested connection for: [A, B, C, D, F]
+A <-> B
+A <-> D
+D <-> F
+D <-> C
+Cost: 620
+
+Suggested connection for: [A101, A102, A103, A208, A207, A309]
+A101 <-> A102
+A102 <-> A103
+A101 <-> A208
+A208 <-> A207
+A208 <-> A309
+Cost: 66
+
+Suggested connection for: [B101, B108, B201, B290, B301, B370]
+B101 <-> B108
+B108 <-> B290
+B290 <-> B201
+B290 <-> B301
+B301 <-> B370
+Cost: 102
+
+Suggested connection for: [C101, C102, C103, C104, C120, C121]
+C101 <-> C102
+C101 <-> C103
+C102 <-> C104
+C104 <-> C121
+C121 <-> C120
+Cost: 50
+
+Suggested connection for: [D101, D102, D110, D201, D109]
+D101 <-> D102
+D101 <-> D109
+D109 <-> D201
+D201 <-> D110
+Cost: 58
+
+Suggested connection for: [F307, F207, F107, F108, F106, F409]
+F307 <-> F107
+F107 <-> F106
+F106 <-> F108
+F108 <-> F207
+F108 <-> F409
+Cost: 65
+
+Suggested connection for: [A, B, C, D, F]
+A <-> B
+A <-> D
+D <-> F
+D <-> C
+Cost: 620
